@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="book.css">
-    <title>Events</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="book.css">
+  <title>Book Tickets - CinePulse</title>
 </head>
+
 <body>
-     <body="header">
-                <div class="nav1">
-                    <div class="title">
-                        <h1>CinePulse</h1>
-                    </div>
-                </div>
-                <div class="nav2">
-                    <a href="Home.html" >Home</a>
-                    <a href="movie.html" >Movies</a>
-                    <a href="event.html" >Events</a>
-                    <a href="#book" id="active">Book Here</a>
-                    <a href="#home" id="about">About US</a>
-                </div>
+  <div class="nav1">
+    <div class="title">
+      <h1>CinePulse</h1>
+    </div>
+  </div>
 
+  <div class="nav2">
+    <a href="Home.html">Home</a>
+    <a href="movie.html">Movies</a>
+    <a href="event.html">Events</a>
+    <a href="#book" id="active">Book Here</a>
+    <a href="#home" id="about">About Us</a>
+  </div>
 
-               <div class="tbook">
-                
+  <div class="tbook">
     <p>Please fill out these details for confirmation of ticket</p>
-    <form>
+
+    <form id="bookingForm">
       <fieldset>
-        <label for="first-name">Enter Your Name: <input id="first-name" name="first-name" type="text" required /></label>
-        <label for="last-name">Enter Your Mobile No.: <input id="last-name" name="last-name" type="text" required /></label>
-        <label for="email">No. Of Tickets: <input id="email" name="email" type="number" required /></label>
-        <label for="new-password">dd/mm/yyyy: <input id="new-password" name="new-password" type="text" required /></label>
+        <label for="first-name">Enter Your Name:
+          <input id="first-name" name="first-name" type="text" required />
+        </label>
+
+        <label for="mobile">Enter Your Mobile No.:
+          <input id="mobile" name="mobile" type="text" required pattern="[0-9]{10}" title="Enter a valid 10-digit mobile number" />
+        </label>
+
+        <label for="tickets">No. Of Tickets:
+          <input id="tickets" name="tickets" type="number" required min="1" max="10" />
+        </label>
+
+        <label for="date">Date (dd/mm/yyyy):
+          <input id="date" name="date" type="text" required placeholder="dd/mm/yyyy" />
+        </label>
       </fieldset>
+
       <fieldset>
         <h4>Seat Type:</h4>
-        <label><input type="radio" name="Silver" class="inline" /> Silver (Rs.500)</label>
-        <label><input type="radio" name="Gold" class="inline" /> Gold (Rs.1000)</label>
-        <label><input type="radio" name="Diamond" class="inline" /> Diamond (Rs.1500)</label>
+        <label><input type="radio" name="seat" value="Silver" required /> Silver (Rs.500)</label>
+        <label><input type="radio" name="seat" value="Gold" required /> Gold (Rs.1000)</label>
+        <label><input type="radio" name="seat" value="Diamond" required /> Diamond (Rs.1500)</label>
       </fieldset>
-      <label for="terms-and-conditions">
-        <input class="inline" id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" /> I accept the terms and conditions
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
-</div>
 
+      <label for="terms-and-conditions">
+        <input class="inline" id="terms-and-conditions" type="checkbox" required />
+        I accept the terms and conditions
+      </label>
+
+      <input type="submit" value="Book Ticket" />
+    </form>
+  </div>
+
+  <script>
+    // Simple alert on form submission
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent page reload
+      alert("🎟️ Your ticket has been booked successfully!");
+      this.reset(); // reset form fields
+    });
+  </script>
 </body>
+</html>
