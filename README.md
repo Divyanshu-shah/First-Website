@@ -111,7 +111,3 @@ This project does not use any APIs.
 👤 Author
 ================
 The author of this project is Divyanshu Shah.
-
-📝 License
-================
-This project is licensed under the [License Name] license.
